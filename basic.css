@@ -183,3 +183,12 @@ body {
     }
   }
   
+  /* Set the size of the div element that contains the map */
+  #map {
+    background: black;
+    height: auto;
+    /* The height is 400 pixels */
+    width: auto;
+    /* The width is the width of the web page */
+  }
+  

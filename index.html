@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foot Care</title>
     <link rel="stylesheet" type="text/css" href="./basic.css">
+    <style>
+        label {
+          display: block;
+          margin-bottom: .2em;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header Showcase -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBva1_FHoBdiMtf6djVZy3rB5XVD9CypMQ&callback=initMap&libraries=&v=weekly" defer></script>
+
+    <!-- Header Showcase -->
   <header id="showcase" class="grid">
     <div class="bg-image"></div>
     <div class="content-wrap">
@@ -79,23 +87,60 @@
     <!-- Section D -->
     <section id="section-d" class="grid">
       <div class="box">
-        <h2 class="content-title">Contact Us</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, suscipit. Rerum ducimus a quod, ut et voluptas obcaecati unde fuga.</p>
-        <p>contact@acmewebsolutions.test</p>
+        <h2 class="content-title">Contact Anna</h2>
+        <div>Email: butterflybamboo@yahoo.com &nbsp;&nbsp;Phone: 778 - 533 - 9670
+        </div>
+        <!-- <form name="contact" method="POST" data-netlify="true"> -->
+        <form name="contact" method="POST" >
+            <h3>Send Anna A Contact Request</h3>
+            <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" />
+            </div>
+        
+        
+            <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" />
+            </div>
+        
+            <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+            </div>
+            <div>
+            <button type="submit">Send</button>
+            </div>
+        </form>      
       </div>
-      <div class="box">
-        <h2 class="content-title">About Our Company</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio earum porro deserunt, deleniti, quae facere repudiandae, officiis est exercitationem nobis iusto doloremque! Soluta excepturi in aut suscipit amet temporibus quo?</p>
-      </div>
+      <div class="box" id="map"></div>
     </section>
+    
   </main>
   
   <!-- Footer -->
   <footer id="main-footer" class="grid">
-    <div>Acme Web Solutions</div>
-    <div>Project By <a href="http://traversymedia.com" target="_blank">Traversy Media</a></div>
+    <div><a href="#showcase">Anna's Foot Care</a></div>
+    <div>&copy; <a href="https://webprofreelance.ca">Webpro Freelance</a> and <a href="http://traversymedia.com" target="_blank">Traversy Media</a></div>
   </footer>
-    
+  
+
+<script>// Initialize and add the map
+    function initMap() {
+      // The location of Uluru
+      const uluru = { lat: 48.4475, lng: -123.4956 };
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 11,
+        center: uluru,
+      });
+      // The marker, positioned at Uluru
+      const marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+      });
+    }
+</script>    
 
 </body>
 </html>
