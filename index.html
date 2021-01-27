@@ -16,9 +16,7 @@
     <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
 </head>
 <body>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj3-qpGjzy-vL1lDi1YtFzUP5WisgblOA&callback=initMap&libraries=&v=weekly" defer></script> -->
-
-    <!-- Header Showcase -->
+  <!-- Header Showcase -->
   <header id="showcase" class="grid">
     <div class="bg-image"></div>
     <div class="content-wrap">
@@ -126,7 +124,6 @@
     <div><a href="#showcase">Anna's Foot Care</a></div>
     <div>&copy; <a href="https://webprofreelance.ca">Webpro Freelance</a> and <a href="http://traversymedia.com" target="_blank">Traversy Media</a></div>
   </footer>
-  
 
 <script>
 // Initialize and add the map
@@ -134,7 +131,7 @@
 var element = document.getElementById("map");
 
 // Height has to be set. You can do this in CSS too.
-element.style = 'height:auto;';
+element.style = 'min-height:200px;';
 
 // Create Leaflet map on map element.
 var map = L.map(element);
@@ -152,9 +149,7 @@ map.setView(target, 11);
 
 // Place a marker on the same location.
 L.marker(target).addTo(map);
-
 </script>    
-
 </body>
 </html>
 
