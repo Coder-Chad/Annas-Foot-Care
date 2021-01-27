@@ -12,9 +12,11 @@
           margin-bottom: .2em;
         }
     </style>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
 </head>
 <body>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj3-qpGjzy-vL1lDi1YtFzUP5WisgblOA&callback=initMap&libraries=&v=weekly" defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj3-qpGjzy-vL1lDi1YtFzUP5WisgblOA&callback=initMap&libraries=&v=weekly" defer></script> -->
 
     <!-- Header Showcase -->
   <header id="showcase" class="grid">
@@ -126,21 +128,31 @@
   </footer>
   
 
-<script>// Initialize and add the map
-    function initMap() {
-      // The location of Uluru
-      const uluru = { lat: 48.4475, lng: -123.4956 };
-      // The map, centered at Uluru
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 11,
-        center: uluru,
-      });
-      // The marker, positioned at Uluru
-      const marker = new google.maps.Marker({
-        position: uluru,
-        map: map,
-      });
-    }
+<script>
+// Initialize and add the map
+// Where you want to render the map.
+var element = document.getElementById("map");
+
+// Height has to be set. You can do this in CSS too.
+element.style = 'height:auto;';
+
+// Create Leaflet map on map element.
+var map = L.map(element);
+
+// Add OSM tile leayer to the Leaflet map.
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// Target's GPS coordinates.
+var target = L.latLng('48.4475', '-123.4956');  // Langford, BC
+
+// Set map's center to target with zoom 11
+map.setView(target, 11);
+
+// Place a marker on the same location.
+L.marker(target).addTo(map);
+
 </script>    
 
 </body>
